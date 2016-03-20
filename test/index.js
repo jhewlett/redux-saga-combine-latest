@@ -26,17 +26,28 @@ const store = createStore(
 )
 
 describe('combineLatest', () => {
-  it('should yield callback with latest action of each type', () => {
-    const action1 = { type: 'type1', some: 'payload' }
-    store.dispatch(action1)
-    expect(spy).not.to.be.called
+  const action1 = { type: 'type1', some: 'payload' }
+  const action2 = { type: 'type2', some: 'payload' }
+  const action3 = { type: 'type2', other: 'payload' }
 
-    const action2 = { type: 'type2', some: 'payload'}
-    store.dispatch(action2)
-    expect(spy).to.be.calledWith([action1, action2])
+  describe('when only one action type has been dispatched', () => {
+    it('should not yield saga yet', () => {
+      store.dispatch(action1)
+      expect(spy).not.to.be.called
+    })
+  })
 
-    const action3 = { type: 'type2', other: 'payload' }
-    store.dispatch(action3)
-    expect(spy).to.be.calledWith([action1, action3])
+  describe('when all action types have been dispatched', () => {
+    it('should yield saga with all actions', () => {
+      store.dispatch(action2)
+      expect(spy).to.be.calledWith([action1, action2])
+    })
+  })
+
+  describe('when a third action is dispatched', () => {
+    it('should yield saga with latest actions of each type', () => {
+      store.dispatch(action3)
+      expect(spy).to.be.calledWith([action1, action3])
+    })
   })
 })
