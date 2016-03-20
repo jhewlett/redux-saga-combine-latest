@@ -1,5 +1,5 @@
 import chai, { expect } from 'chai'
-import combineLatest from '../index.js'
+import combineLatest from '../src/index.js'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
