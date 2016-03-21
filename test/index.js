@@ -1,21 +1,24 @@
 import chai, { expect } from 'chai'
-import combineLatest from '../src/index.js'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
+chai.use(sinonChai);
 
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { put } from 'redux-saga/effects'
+import * as effects from 'redux-saga/effects'
+import 'babel-polyfill'
 
-chai.use(sinonChai);
+import createCombineLatest from '../src/index.js'
 
 const spy = sinon.spy()
 function* handleActions(actions) {
   spy(actions)
 }
 
+const combineLatest = createCombineLatest(effects)
+
 function* saga() {
-  yield* combineLatest(['type1', 'type2'], handleActions)
+  yield combineLatest(['type1', 'type2'], handleActions)
 }
 
 const sagaMiddleware = createSagaMiddleware(saga)
