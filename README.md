@@ -1,8 +1,8 @@
-###Install###
+###Install
 
 `npm install --save redux-saga-combine-latest`
 
-###Usage###
+###Usage
 
 ```javascript
 import { createStore, applyMiddleware } from 'redux'
