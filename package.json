@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-combine-latest",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Wait for several action types to be dispatched before handling them",
   "main": "lib/index.js",
   "scripts": {
