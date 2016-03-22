@@ -1,16 +1,33 @@
 {
   "name": "redux-saga-combine-latest",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wait for several action types to be dispatched before handling them",
   "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
     "compile": "babel src -d lib",
     "prepublish": "npm run test && npm run compile",
     "test": "BABEL_DISABLE_CACHE=1 mocha test/index.js --compilers js:babel-core/register",
     "test-watch": "BABEL_DISABLE_CACHE=1 mocha test/index.js -w --compilers js:babel-core/register"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhewlett/redux-saga-combine-latest.git"
+  },
+  "keywords": [
+    "javascript",
+    "redux",
+    "saga",
+    "frp",
+    "stream",
+    "generator"
+  ],
   "author": "Justin Hewlett",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhewlett/redux-saga-combine-latest/issues"
+  },
+  "homepage": "https://github.com/jhewlett/redux-saga-combine-latest#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.6.5",
