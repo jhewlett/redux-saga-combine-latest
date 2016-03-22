@@ -7,7 +7,7 @@
 ```javascript
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import { take } from 'redux-saga/effects'
+import * as effects from 'redux-saga/effects'
 import 'babel-polyfill'
 
 import createCombineLatest from 'redux-saga-combine-latest'
